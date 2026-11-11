@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17191c">
+<title>VexelSMP | Minecraft Server</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Vazirmatn:wght@400;500;700;800;900&display=swap');
+:root{--orange:#ff861f;--orange2:#ffad55;--bg:#17191c;--panel:#22262b;--muted:#aab0b8;--line:#383e45;--white:#f4f5f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:'Vazirmatn',Tahoma,sans-serif;overflow-x:hidden}
+#matrix{position:fixed;inset:0;width:100%;height:100%;z-index:-2;opacity:.22}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 0%,#ff861f16,transparent 55%),linear-gradient(#17191cdd,#17191cee)}
+a{color:inherit;text-decoration:none}.pixel{font-family:'Press Start 2P',monospace;letter-spacing:-1px}
+header{position:sticky;top:0;z-index:10;background:#17191ceF;border-bottom:1px solid #ffffff14;backdrop-filter:blur(14px)}
+nav{max-width:1120px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px}.cube{width:38px;height:38px;background:linear-gradient(135deg,#ffb15f 0 33%,#ff861f 33% 66%,#c85d0b 66%);box-shadow:inset -5px -5px #0003;border:2px solid #ffc17e}
+nav .links{display:flex;gap:22px;color:#c7cbd0;font-size:14px}nav .links a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border:0;border-radius:8px;background:var(--orange);color:#1b1b1b;font:800 14px 'Vazirmatn';cursor:pointer;transition:.2s;box-shadow:0 4px 0 #a84c0b}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn.secondary{background:#30363d;color:#fff;box-shadow:0 4px 0 #111;border:1px solid #454c54}
+main{max-width:1120px;margin:auto;padding:0 22px}.hero{min-height:570px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;padding:65px 0}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--orange2);background:#ff861f17;border:1px solid #ff861f45;padding:7px 12px;border-radius:5px;font-size:12px;font-weight:800}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.2;margin:22px 0 14px;font-weight:900}h1 span{color:var(--orange)}.sub{color:#b9bec5;line-height:2;font-size:16px;max-width:550px}
+.server-ip{display:flex;align-items:center;gap:10px;background:#22262b;border:1px solid #3d434b;border-radius:10px;padding:9px 10px 9px 14px;margin:25px 0;max-width:440px}.server-ip code{direction:ltr;font:16px 'Press Start 2P';font-size:12px;color:#ffb36b;flex:1;text-align:left}.server-ip button{border:0;border-radius:6px;background:#ff861f;color:#17191c;padding:9px 13px;font-weight:900;cursor:pointer}
+.hero-art{position:relative;min-height:350px;display:grid;place-items:center}.portal{width:min(330px,80vw);aspect-ratio:1;border:12px solid #343a40;outline:5px solid #ff861f;box-shadow:0 0 40px #ff861f55,inset 0 0 55px #ff861f66;background:repeating-linear-gradient(0deg,#ff861f25 0 10px,transparent 10px 20px),linear-gradient(135deg,#292d33,#101214);transform:perspective(700px) rotateY(-12deg) rotateX(5deg);display:grid;place-items:center}.portal .pixel{font-size:25px;color:#ffb15f;text-shadow:4px 4px #713506;line-height:1.8;text-align:center}.block{position:absolute;width:65px;height:65px;background:linear-gradient(135deg,#ffb15f 0 33%,#ff861f 33% 66%,#a84c0b 66%);border:3px solid #2d3034;box-shadow:7px 7px #0005}.b1{top:20px;right:12%}.b2{bottom:28px;left:8%;width:48px;height:48px;background:linear-gradient(135deg,#92999f 0 33%,#626a72 33% 66%,#3a4148 66%)}
+section{padding:55px 0;scroll-margin-top:80px}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-size:27px;margin:0 0 9px}.section-head p{color:var(--muted);margin:0;font-size:14px}.accent{color:var(--orange)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#252a30,#1e2227);border:1px solid #3b424a;border-radius:12px;padding:23px;box-shadow:0 12px 30px #0002}.card h3{margin:10px 0 8px}.card p{color:var(--muted);line-height:1.9;font-size:14px}.ico{font-size:27px}
+.form-wrap{max-width:650px;margin:auto}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:13px;color:#c5cbd1}.field input,.field select,.field textarea{background:#171a1e;border:1px solid #414850;color:white;padding:13px;border-radius:7px;font:14px 'Vazirmatn';outline:none}.field input:focus,.field textarea:focus{border-color:var(--orange)}.note{font-size:12px;color:#8f969e;line-height:1.8}
+.supports{display:grid;grid-template-columns:1fr 1fr;gap:16px}.support-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#252a30;border:1px solid #3b424a;border-radius:10px;padding:18px}.support-link strong{display:block}.support-link small{color:var(--muted)}
+.coin-panel{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(110deg,#34291f,#252a30 65%);border:1px solid #805027;border-radius:14px;padding:25px}.wallet{display:flex;align-items:center;gap:14px}.coin{width:55px;height:55px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#ffe5a2,#f59b27 55%,#a64c0b);border:4px solid #ffd28a;color:#713600;font-size:23px;box-shadow:0 0 20px #ff9c2c44}
+.game-box{background:#20252a;border:1px solid #454c54;border-radius:13px;padding:18px}.game-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.stats{display:flex;gap:16px;color:#d9dde1;font-size:13px}.stats b{color:var(--orange2)}canvas#game{display:block;width:100%;height:230px;background:linear-gradient(#252c33,#30373d);border:1px solid #4a535c;border-radius:8px;touch-action:manipulation}.game-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px}.game-help{text-align:center;color:#aeb5bc;font-size:12px;line-height:1.9;margin:12px 0 0}
+footer{border-top:1px solid #ffffff16;text-align:center;color:#858d96;padding:28px 15px;font-size:12px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#ff861f;color:#17191c;padding:11px 18px;border-radius:8px;font-weight:900;transition:.25s;z-index:20;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){nav .links{display:none}.hero{grid-template-columns:1fr;text-align:center;padding:50px 0}.sub,.server-ip{margin-left:auto;margin-right:auto}.hero-art{min-height:290px}.grid{grid-template-columns:1fr}.supports{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.section-head h2{font-size:23px}}
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<header><nav>
+<a class="brand" href="#"><span class="cube"></span><span class="pixel" style="font-size:14px">VEXEL<span style="color:#ff861f">SMP</span></span></a>
+<div class="links"><a href="#about">معرفی سرور</a><a href="#register">ثبت‌نام</a><a href="#game">مینی‌گیم</a><a href="#support">پشتیبانی</a></div>
+<a class="btn" href="#register">ورود به ماجراجویی</a>
+</nav></header>
+<main>
+<section class="hero" id="home">
+<div>
+<div class="eyebrow">⛏️ دنیای جدیدت منتظرته</div>
+<h1><span>VEXEL</span><br>SMP</h1>
+<p class="sub">به دنیای وکسل اس‌ام‌پی خوش اومدی! ماجراجویی کن، بساز، بجنگ و کنار دوستات یک دنیای فراموش‌نشدنی بساز.</p>
+<div class="server-ip"><code>vexelsmp.spwn.ir</code><button onclick="copyIP()">کپی آی‌پی</button></div>
+<a class="btn" href="#about">کشف سرور <span>←</span></a>
+</div>
+<div class="hero-art"><div class="portal"><div class="pixel">VEXEL<br>SMP</div></div><div class="block b1"></div><div class="block b2"></div></div>
+</section>
+<section id="about">
+<div class="section-head"><h2>به دنیای <span class="accent">VexelSMP</span> خوش آمدی</h2><p>ماجراجویی تو از همین‌جا شروع می‌شه.</p></div>
+<div class="grid">
+<div class="card"><div class="ico">🧱</div><h3>دنیای ماینکرفت</h3><p>بساز، استخراج کن و قلمرو خودت رو در دنیای بلوکی گسترش بده.</p></div>
+<div class="card"><div class="ico">⚔️</div><h3>رقابت و بقا</h3><p>با بقیه بازیکن‌ها رقابت کن و مهارت‌هات رو به رخ بکش.</p></div>
+<div class="card"><div class="ico">👥</div><h3>جامعه دوستانه</h3><p>دوست پیدا کن، تیم تشکیل بده و تجربه‌های تازه بساز.</p></div>
+</div>
+</section>
+<section id="register">
+<div class="section-head"><h2>ثبت‌نام <span class="accent">بازیکنان</span></h2><p>فرم زیر نمایشی است و برای ذخیره و ارسال واقعی به سرور نیاز دارد.</p></div>
+<div class="card form-wrap">
+<form id="regForm" class="form-grid">
+<div class="field"><label for="player">نام داخل بازی</label><input id="player" required maxlength="16" placeholder="مثلاً Steve"></div>
+<div class="field"><label for="contact">راه ارتباطی</label><input id="contact" required placeholder="آیدی دیسکورد یا پیام‌رسان"></div>
+<div class="field full"><label for="version">نسخه ماینکرفت</label><select id="version"><option>1.21.x</option><option>1.20.x</option><option>نسخه دیگر</option></select></div>
+<div class="field full"><button class="btn" type="submit">ثبت درخواست</button></div>
+</form><p class="note">با زدن دکمه، متن درخواست ساخته و کپی می‌شود؛ آن را برای مدیریت سرور بفرست. این صفحه به دیتابیس متصل نیست.</p>
+</div>
+</section>
+<section id="game">
+<div class="section-head"><h2>مینی‌گیم <span class="accent">Vexel Run</span></h2><p>بپر، از مانع‌ها رد شو و سکه جمع کن!</p></div>
+<div class="game-box">
+<div class="game-top"><div class="stats"><span>امتیاز: <b id="score">0</b></span><span>سکه بازی: <b id="runCoins">0</b>/20</span><span>رکورد: <b id="best">0</b></span></div><button class="btn secondary" id="soundBtn" onclick="toggleSound()">🔊 صدا روشن</button></div>
+<canvas id="game" width="900" height="230" aria-label="بازی پرش وکسل"></canvas>
+<div class="game-controls"><button class="btn" id="startBtn" onclick="startGame()">شروع بازی</button><button class="btn secondary" onclick="jump()">پرش / Space</button></div>
+<p class="game-help">برای پرش Space یا لمس صفحه را بزن. با جمع‌کردن ۲۰ سکه در بازی، ۲ وکسل‌کوین می‌گیری. هر ۲۰ سکه فقط یک‌بار جایزه دارد.</p>
+</div>
+</section>
+<section id="wallet">
+<div class="section-head"><h2>کیف پول <span class="accent">وکسل‌کوین</span></h2><p>جایزه‌های مینی‌گیم در همین مرورگر ذخیره می‌شوند.</p></div>
+<div class="coin-panel"><div class="wallet"><div class="coin">V</div><div><strong>موجودی وکسل‌کوین</strong><div class="note">برای هر ۲۰ سکه بازی، ۲ وکسل‌کوین</div></div></div><div><strong class="pixel" style="font-size:26px;color:#ffad55" id="walletCoins">0</strong><span style="color:#c5cbd1"> VEX</span></div></div>
+</section>
+<section id="support">
+<div class="section-head"><h2>ارتباط با <span class="accent">پشتیبانی</span></h2><p>برای سوال یا گزارش مشکل از راه‌های زیر پیام بده.</p></div>
+<div class="supports">
+<a class="support-link" href="https://ble.ir/tuopro" target="_blank" rel="noopener"><span>🟠 <strong>پشتیبانی بله</strong><small>@tuopro</small></span><b>←</b></a>
+<a class="support-link" href="https://rubika.ir/tuopro1" target="_blank" rel="noopener"><span>🟣 <strong>پشتیبانی روبیکا</strong><small>@tuopro1</small></span><b>←</b></a>
+</div>
+</section>
+</main>
+<footer><span class="pixel" style="font-size:11px;color:#ff9b43">VEXELSMP</span><p>ساخته‌شده برای ماجراجویان ماینکرفت · vexelsmp.spwn.ir</p></footer>
+<div class="toast" id="toast"></div>
+<script>
+// پس‌زمینه باران کد
+const matrix=document.getElementById('matrix'),mctx=matrix.getContext('2d');let drops=[];
+function resizeMatrix(){matrix.width=innerWidth;matrix.height=innerHeight;drops=Array(Math.ceil(matrix.width/18)).fill(1)}
+resizeMatrix();addEventListener('resize',resizeMatrix);
+function rain(){mctx.fillStyle='rgba(23,25,28,.10)';mctx.fillRect(0,0,matrix.width,matrix.height);mctx.fillStyle='#ff8b2b';mctx.font='14px monospace';drops.forEach((y,i)=>{mctx.fillText(['0','1','▧','▣'][Math.random()*4|0],i*18,y*18);if(y*18>matrix.height&&Math.random()>.975)drops[i]=0;drops[i]++});requestAnimationFrame(rain)}rain();
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2300)}
+function copyIP(){navigator.clipboard?.writeText('vexelsmp.spwn.ir').then(()=>toast('آی‌پی کپی شد!')).catch(()=>toast('آی‌پی: vexelsmp.spwn.ir'))}
+document.getElementById('regForm').addEventListener('submit',e=>{e.preventDefault();const msg=`درخواست ثبت‌نام VexelSMP\nنام بازی: ${player.value}\nراه ارتباطی: ${contact.value}\nنسخه: ${version.value}`;navigator.clipboard?.writeText(msg).then(()=>toast('درخواست کپی شد؛ برای پشتیبانی بفرست!')).catch(()=>toast('درخواست آماده شد؛ از اطلاعات فرم عکس بگیر.'))});
+// سیستم سکه و صدا
+let soundOn=true,audioCtx=null;
+function beep(freq=500,duration=.09,type='square'){if(!soundOn)return;try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(.07,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration)}catch(e){}}
+function toggleSound(){soundOn=!soundOn;document.getElementById('soundBtn').textContent=soundOn?'🔊 صدا روشن':'🔇 صدا خاموش';if(soundOn)beep(700)}
+let wallet=+(localStorage.getItem('vexelCoins')||0),best=+(localStorage.getItem('vexelBest')||0);
+function updateWallet(){document.getElementById('walletCoins').textContent=wallet;document.getElementById('best').textContent=best}
+updateWallet();
+// بازی پرش
+const c=document.getElementById('game'),ctx=c.getContext('2d');let running=false,raf=0,frame=0,score=0,runCoins=0,speed=5,playerY=170,vy=0,ground=true,obstacles=[],coins=[],lastSpawn=0;
+function resetGame(){cancelAnimationFrame(raf);running=true;frame=0;score=0;runCoins=0;speed=5;playerY=170;vy=0;ground=true;obstacles=[];coins=[];lastSpawn=0;document.getElementById('score').textContent=0;document.getElementById('runCoins').textContent=0;document.getElementById('startBtn').textContent='شروع دوباره';loop()}
+function startGame(){if(!running)resetGame()}
+function jump(){if(!running){startGame();return}if(ground){vy=-12.5;ground=false;beep(420,.07)}}
+addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();jump()}});c.addEventListener('pointerdown',()=>jump());
+function drawBlock(x,y,w,h,color='#d97722'){ctx.fillStyle=color;ctx.fillRect(x,y,w,h);ctx.fillStyle='#ffb15f';ctx.fillRect(x,y,w,5);ctx.fillStyle='#0003';ctx.fillRect(x+w-5,y,5,h)}
+function loop(){if(!running)return;frame++;ctx.clearRect(0,0,c.width,c.height);
+// أرضية
+ctx.fillStyle='#555e66';ctx.fillRect(0,205,900,25);ctx.fillStyle='#ff861f';ctx.fillRect(0,205,900,3);for(let x=-(frame*speed%50);x<900;x+=50){ctx.fillStyle='#717b84';ctx.fillRect(x,216,24,3)}
+// بازیکن مکعبی
+vy+=.62;playerY+=vy;if(playerY>=170){playerY=170;vy=0;ground=true}
+drawBlock(95,playerY,34,35,'#aeb6bd');ctx.fillStyle='#222';ctx.fillRect(103,playerY+10,5,5);ctx.fillRect(117,playerY+10,5,5);ctx.fillStyle='#ff861f';ctx.fillRect(105,playerY+23,14,4);
+// موانع و سکه‌ها
+if(frame-lastSpawn>Math.max(55,105-speed*5)){obstacles.push({x:920,w:25+Math.random()*15,h:30+Math.random()*25});lastSpawn=frame;if(Math.random()>.28)coins.push({x:920+80,y:125+Math.random()*45,got:false})}
+obstacles.forEach(o=>{o.x-=speed;drawBlock(o.x,205-o.h,o.w,o.h,'#bd6421');if(95+29>o.x&&95<o.x+o.w&&playerY+34>205-o.h){running=false;beep(110,.3,'sawtooth');if(score>best){best=score;localStorage.setItem('vexelBest',best)}updateWallet();document.getElementById('startBtn').textContent='دوباره بازی کن';ctx.fillStyle='#fff';ctx.font='bold 28px Vazirmatn';ctx.textAlign='center';ctx.fillText('پایان بازی! برای شروع دوباره کلیک کن',450,95)}});obstacles=obstacles.filter(o=>o.x>-60);
+coins.forEach(o=>{o.x-=speed;ctx.beginPath();ctx.fillStyle='#ffbf48';ctx.arc(o.x,o.y,9,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#fff0a8';ctx.lineWidth=3;ctx.stroke();if(!o.got&&Math.abs(o.x-112)<22&&Math.abs(o.y-(playerY+17))<28){o.got=true;runCoins++;score+=5;beep(850,.08,'sine');document.getElementById('runCoins').textContent=runCoins;document.getElementById('score').textContent=score;if(runCoins>0&&runCoins%20===0){wallet+=2;localStorage.setItem('vexelCoins',wallet);updateWallet();toast('آفرین! ۲ وکسل‌کوین گرفتی 🎉');beep(1000,.2,'sine')}}});coins=coins.filter(o=>o.x>-20&&!o.got);
+if(frame%8===0){score++;document.getElementById('score').textContent=score}speed=Math.min(10,5+frame/1200);if(running)raf=requestAnimationFrame(loop)}
+</script>
+</body></html>
